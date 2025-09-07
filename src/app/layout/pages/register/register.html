@@ -1,0 +1,61 @@
+<div class="flex flex-wrap min-h-screen w-full content-center justify-center bg-gray-200 py-10">
+  <!-- Login component -->
+  <div class="flex shadow-md rounded-md overflow-hidden bg-white">
+    
+    <!-- Login form -->
+    <div class="flex flex-col justify-center p-8 w-96">
+      <h1 class="text-xl font-semibold">Welcome back</h1>
+      <small class="text-gray-400">Welcome back! Please enter your details</small>
+
+      <!-- Form -->
+      <form [formGroup]="RegisterForm" (ngSubmit)="Register()" class="mt-4 space-y-3">
+        <div>
+          <label class="mb-1 block text-xs font-semibold">DisplayName</label>
+          <input formControlName="DisplayNamen" type="text" placeholder="Enter your DisplayName"
+            class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:ring-1 focus:ring-purple-700 py-1.5 px-2 text-gray-600" />
+        </div>
+        
+        <div>
+          <label class="mb-1 block text-xs font-semibold">Username</label>
+          <input formControlName="username" type="text" placeholder="Enter your username"
+            class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:ring-1 focus:ring-purple-700 py-1.5 px-2 text-gray-600" />
+        </div>
+
+        <div>
+          <label class="mb-1 block text-xs font-semibold">PhoneNumber</label>
+          <input formControlName="PhoneNumber" type="text" placeholder="Enter your PhoneNumber"
+            class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:ring-1 focus:ring-purple-700 py-1.5 px-2 text-gray-600" />
+        </div>
+
+        <div>
+          <label class="mb-1 block text-xs font-semibold">Email</label>
+          <input formControlName="email" type="email" placeholder="Enter your email"
+            class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:ring-1 focus:ring-purple-700 py-1.5 px-2 text-gray-600" />
+        </div>
+
+        <div>
+          <label class="mb-1 block text-xs font-semibold">Password</label>
+          <input formControlName="password" type="password" placeholder="*****"
+            class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:ring-1 focus:ring-purple-700 py-1.5 px-2 text-gray-600" />
+        </div>
+
+        <div>
+          <label class="mb-1 block text-xs font-semibold">Confirm Password</label>
+          <input formControlName="RePassword" type="password" placeholder="*****"
+            class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:ring-1 focus:ring-purple-700 py-1.5 px-2 text-gray-600" />
+        </div>
+
+        <button class="w-full py-2 text-white bg-purple-700 hover:bg-purple-900 rounded-md">
+            Register
+        </button>
+        <a routerLink="/login" class="text-xs text-gray-400 hover:underline">Already have an account? Sign in</a>
+      </form>
+    </div>
+
+    <!-- Login banner -->
+    <div class="w-96 h-auto">
+      <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+           class="w-full h-full object-cover rounded-r-md" />
+    </div>
+  </div>
+</div>

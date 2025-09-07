@@ -1,0 +1,39 @@
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center p-8 md:p-12">
+      <!-- صورة المنتج -->
+      <div class="flex justify-center items-center p-4">
+        <img
+          [src]="baseurl + '/' + product.pictureUrl"
+          [alt]="product.description"
+          class="w-full max-w-md h-auto object-contain rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105"
+        />
+      </div>
+
+      <!-- تفاصيل المنتج -->
+      <div class="p-4 lg:p-0 space-y-6">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+    {{ product.productName }}
+        </h1>
+
+        <p class="text-2xl font-bold text-green-600">
+          {{ product.price }} EGP
+        </p>
+
+        <p class="text-gray-600 text-lg leading-relaxed">
+            {{ product.description }}
+        </p>
+
+        <div class="flex items-center space-x-2">
+          <span class="text-green-500 font-bold">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            {{ product.stock > 0 ? 'In Stock' : 'Out of Stock' }}
+          </span>
+        </div>
+
+        <button
+          class="w-full mt-8 py-4 px-8 bg-indigo-600 text-white font-bold rounded-full shadow-lg hover:bg-indigo-700 transition-colors duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50"
+        >add to cart
+        </button>
+      </div>
+    </div>
