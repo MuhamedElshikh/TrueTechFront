@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Branchservice } from '../../../shared/servises/branch/branchservice';
 import { branch } from '../../../shared/interfaces/BranchInterface';
 import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-branch',
   templateUrl: './branch.html',
   styleUrls: ['./branch.css'],
-  imports: [RouterLink],
+  imports: [RouterLink,CommonModule],
 })
 export class Branch implements OnInit {
   branch!: branch[];

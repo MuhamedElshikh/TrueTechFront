@@ -9,6 +9,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { Observable } from 'rxjs/internal/Observable';
 import { FailLogin, singin, successLogin } from '../../interfaces/loginInterface';
 import { base } from '../../../base/environment';
+import { error } from 'console';
 
 
 @Injectable({
@@ -55,5 +56,17 @@ logout()
     const decoded = jwtDecode(token);
     this.usertoken.next(decoded);
   }
+  getUserEmail(): string  {
+     const token = localStorage.getItem('usertoken');
+  if (!token) throw null;
+  var email = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
 
+  // decode التوكن
+  const decoded: any = jwtDecode(token);
+
+  // هنا بقى ترجع الايميل (لازم تتأكد ان السيرفر بيحطه جوة ال claims)
+  return decoded[email] || null;
+    
+
+  }
 }

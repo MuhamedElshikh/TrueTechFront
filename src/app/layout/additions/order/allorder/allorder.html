@@ -1,0 +1,52 @@
+<h1 class="text-5xl text-center p-5 shadow-lg">your Orders</h1>
+
+<div id="accordion-collapse" data-accordion="collapse" >
+@for (item of getallorder; track $index) {
+     <h2 [id]="'accordion-collapse-heading-'+$index">
+      <button (click)="toggleAccordion($index)" type="button" class="flex bg-green-600 items-center justify-between w-full p-5 font-medium rtl:text-right text-white border border-b-0 border-gray-200 rounded-t-xl hover:bg-green-800"
+              [attr.data-accordion-target]="'#accordion-collapse-body-'+$index"
+              aria-expanded="true"
+              [attr.aria-controls]="'accordion-collapse-body-'+$index">
+        <span>Total price: {{item.totalAmount}}</span>
+        <span>orderDate: {{item.orderDate}}</span>
+        <span>user Email: {{item.userEmail}}</span>
+      </button>
+    </h2>
+    <div [id]="'accordion-collapse-body-'+ $index" class="hidden" [attr.aria-labelledby]="'accordion-collapse-heading-'+$index">
+      <table class="w-full py-5 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-black uppercase bg-gray-50  dark:text-gray-400">
+          <tr>
+            <th scope="col" class="px-16 py-3">
+              <span class="sr-only">Image</span>
+            </th>
+            <th scope="col" class="px-6 py-3">Product</th>
+            <th scope="col" class="px-6 py-3">Qty</th>
+            <th scope="col" class="px-6 py-3">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of item.orderItems; track $index) {
+<tr class="bg-gray-700 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="p-4">
+                    <img [src]="baseurl+ '/' +item?.pictureUrl" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    {{item?.productName}}
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                        {{item?.quantity}}
+                   
+                </td>
+                <td class="px-6 py-4 font-semibold text-white">
+               {{ (item.unitPrice || 0) * (item.quantity || 0)  }}
+                </td>
+            </tr>
+            }
+        </tbody>
+      </table>
+    </div>
+}
+    
+ 
+  
+</div>

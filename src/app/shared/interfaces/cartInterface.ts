@@ -1,13 +1,25 @@
 export interface cart {
-  Id: string;
-  BranchId: string;
-  CartItems: CartItem[];
+  id: string;
+  branchId: string;
+  cartItems: CartItem[];
 }
 
 export interface CartItem {
-  Id: string;
-  ProductId: string;
-  PictureUrl: string;
-  Price: number;
-  Quantity: number;
+  productId: string;
+  branchId: string;
+  quantity: number;
+}
+ export interface getcart {
+  id: string;
+  branchId: string;
+  cartItems: getCartItem[];
+}
+
+export interface getCartItem {
+  productId: string;
+  branchId: string;
+  productName: string;
+  pictureUrl: string;
+  price: number;
+  quantity: number;
 }

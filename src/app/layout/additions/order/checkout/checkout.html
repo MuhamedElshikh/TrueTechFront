@@ -1,0 +1,25 @@
+<h1 class="text-5xl shadow-lg font-mainFont my-4 text-center">shiping Ditiles</h1>
+<form class="w-[70%] mx-auto" [formGroup]="addrsses" >
+
+  <div class="mb-5">
+    <label for="fullName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">full Name</label>
+    <input formControlName="fullName" type="text" id="fullName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="fullName" required />
+  </div>
+    <div class="mb-5">
+    <label for="streetAddress" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">street Address</label>
+    <input formControlName="streetAddress" type="text" id="streetAddress" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="streetAddress" required />
+  </div>
+<div class="mb-5">
+    <label for="city" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your city</label>
+    <input formControlName="city" type="text" id="city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="city" required />
+  </div>
+  <div class="mb-5">
+    <label for="district" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">district</label>
+    <input formControlName="district" type="text" id="district" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="district" required />
+  </div>
+  <div class="mb-5">
+    <label for="country" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your country</label>
+    <input formControlName="country" type="text" id="country" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="country" required />
+  </div>
+  <button (click)="createorder()" class="w-full rounded-lg bg-green-500 text-white p-3 my-5">continue</button>
+</form>

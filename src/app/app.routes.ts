@@ -8,6 +8,9 @@ import { Branch } from './layout/additions/branch/branch';
 import { Home } from './layout/pages/home/home';
 import { Products } from './layout/pages/products/products';
 import { ProductDetails } from './layout/additions/product-details/product-details';
+import { Cart } from './layout/pages/cart/cart';
+import { Checkout } from './layout/additions/order/checkout/checkout';
+import { Allorder } from './layout/additions/order/allorder/allorder';
 
 export const routes: Routes = [  
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -17,4 +20,7 @@ export const routes: Routes = [
     { path: 'register', component: Register },
     { path: 'product/:id', component: Products },
     { path: 'getproduct/:id/:branchId', component: ProductDetails },
+    {path:'cart',component:Cart},
+    {path:'Checkout',component:Checkout},
+    {path:'orders' , component:Allorder}
 ];
