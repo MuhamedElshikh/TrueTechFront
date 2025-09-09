@@ -60,13 +60,19 @@ logout()
      const token = localStorage.getItem('usertoken');
   if (!token) throw null;
   var email = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
-
-  // decode التوكن
   const decoded: any = jwtDecode(token);
 
-  // هنا بقى ترجع الايميل (لازم تتأكد ان السيرفر بيحطه جوة ال claims)
-  return decoded[email] || null;
-    
 
+  return decoded[email]  || null;
+  }
+  getUserrole(): string  {
+     const token = localStorage.getItem('usertoken');
+  if (!token) throw null;
+var role = "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
+  const decoded: any = jwtDecode(token);
+  return decoded[role]  || null;
+  }
+isLoggedIn(): boolean {
+    return this.getUserrole() !== null;
   }
 }

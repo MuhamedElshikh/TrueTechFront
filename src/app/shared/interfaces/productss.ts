@@ -1,6 +1,6 @@
 export interface allproduct {
-  id: string;
-  name: string;
+productId : string;
+  productName: string;
   description: string;
   pictureUrl: string;
   branchId: string;
@@ -31,4 +31,18 @@ export interface BranchProduct {
   branchName: string;
   price: number;
   stock: number;
+}
+export interface adminBranchProductDto {
+  branchId: string;
+  branchName: string;
+  price: number;
+  stock: number;
+}
+
+export interface adminProduct {
+  id: string;
+  name: string;
+  description: string;
+  pictureUrl: string;
+  branchProducts: adminBranchProductDto[];
 }

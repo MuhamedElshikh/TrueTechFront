@@ -42,8 +42,12 @@
                             </svg>
                         </button>
                         <div>
-                            <input [(ngModel)]="numitem" (blur)="edit(item.productId,numitem)" type="number" id="first_product" class="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" [placeholder]="item.quantity" required />
-                        </div>
+<input
+                [(ngModel)]="item.quantity"
+                (blur)="edit(item.productId, item.quantity)"
+                type="number"
+                class="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              />                        </div>
                         <button (click)="updata( item.productId , item.quantity +1 )" class="inline-flex items-center justify-center h-6 w-6 p-1 ms-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
                             <span class="sr-only">Quantity button</span>
                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
@@ -66,7 +70,7 @@
     </table>
     <div class="flex justify-between items-center">
     <button (click)="rmoveall()" class="rounded-lg p-3 bg-red-600 text-white text-xl my-4 mx-4 hover:bg-red-700">Remove all</button>
-    <button routerLink="/Checkout"  class="rounded-lg p-3 bg-green-400 text-white text-xl my-4 mx-4 hover:bg-green-700">checkout</button>
+    <button routerLink="/Custmor/Checkout"  class="rounded-lg p-3 bg-green-400 text-white text-xl my-4 mx-4 hover:bg-green-700">checkout</button>
 </div>   
 }
    @else {

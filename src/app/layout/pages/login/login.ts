@@ -33,7 +33,15 @@ export class Login {
             this.isloading = false;
             localStorage.setItem('usertoken', res.token);
             this._AuthService.decodetoken();
-            this._router.navigate(['/home']);
+            if(this._AuthService.getUserrole()=="Custmor")
+            {
+            this._router.navigate(['/Custmor']);
+            }
+            else
+            {
+                          this._router.navigate(['/Admin']);
+
+            }
             console.log(res);
           }
         },

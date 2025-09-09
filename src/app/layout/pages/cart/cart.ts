@@ -15,7 +15,6 @@ import { RouterLink } from '@angular/router';
 export class Cart implements OnInit {
   cartshow!: getcart;
   cart!: cart;
-  numitem!: any;
   baseurl: string = base.baseurl;
 
   constructor(
@@ -48,7 +47,7 @@ export class Cart implements OnInit {
     const cartItem: CartItem = {
       productId: productid,
       branchId: this.cartshow.branchId,
-      quantity: count   
+      quantity: count  
     };
 
     const email = this._authservice.getUserEmail();
@@ -98,4 +97,5 @@ export class Cart implements OnInit {
       }
     });
   }
+
 }

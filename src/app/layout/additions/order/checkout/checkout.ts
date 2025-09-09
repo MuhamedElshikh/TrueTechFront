@@ -3,6 +3,7 @@ import { creatorder, getorder,Addrsses } from '../../../../shared/interfaces/ord
 import { Orderservice } from './../../../../shared/servises/order/orderservice';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-checkout',
@@ -20,7 +21,7 @@ export class Checkout {
     district:new FormControl(null,Validators.required),
     country:new FormControl(null,Validators.required)
   });
-  constructor(private _Orderservice:Orderservice ,private _Router: Router){}
+  constructor(private _Orderservice:Orderservice ,private _Router: Router ,private toastr: ToastrService){}
   createorder()
   {
 this.placeorder = {
@@ -30,9 +31,8 @@ this.placeorder = {
     item: []
 }
     this._Orderservice.createorder(this.placeorder).subscribe((res) => {
-  console.log(res);
     this._Router.navigate(['/allorders']);
-});
+  });
   }
 
 }

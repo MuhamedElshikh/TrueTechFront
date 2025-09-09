@@ -56,7 +56,8 @@ const cartData: cart = {
  }
     this._cartservice.addToCart(cartData).subscribe({
       next: (res) => {
-        this.cart = res;       
+
+        this._cartservice.setCart(res);
         console.log('Cart updated successfully:', res);
       },
       error: (err) => {

@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { Navbar } from "./layout/additions/navbar/navbar";
 import { Footer } from "./layout/additions/footer/footer";
 import { NgxSpinnerComponent, NgxSpinnerService } from 'ngx-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   
 
 @Component({

@@ -1,0 +1,75 @@
+<div class="max-w-2xl mx-auto bg-white shadow-lg rounded-xl p-6">
+  <h2 class="text-xl font-bold mb-4">
+    {{ isEditMode ? 'Update Product' : 'Add New Product' }}
+  </h2>
+
+  @if(!isEditMode) {
+    <form [formGroup]="AddproductForm" (ngSubmit)="saveProduct()">
+      <div class="mb-3">
+        <label class="block font-medium">Name</label>
+        <input type="text" formControlName="name" class="w-full border rounded px-3 py-2" />
+      </div>
+
+      <div class="mb-3">
+        <label class="block font-medium">Description</label>
+        <textarea formControlName="description" class="w-full border rounded px-3 py-2"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label class="block font-medium">Picture</label>
+        <input type="file" (change)="onFileSelected($event)" />
+      </div>
+
+      <button type="submit"
+        class="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+        Add
+      </button>
+    </form>
+  }
+
+  @if(isEditMode) {
+    <form [formGroup]="editproductForm" (ngSubmit)="saveProduct()">
+      <div class="mb-3">
+        <label class="block font-medium">Name</label>
+        <input type="text" formControlName="name" class="w-full border rounded px-3 py-2" />
+      </div>
+
+      <div class="mb-3">
+        <label class="block font-medium">Description</label>
+        <textarea formControlName="description" class="w-full border rounded px-3 py-2"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label class="block font-medium">Picture</label>
+        <input type="file" (change)="onFileSelected($event)" />
+      </div>
+
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label class="block font-medium">Branch ID</label>
+          <input type="text" formControlName="branchId" class="w-full border rounded px-3 py-2" />
+        </div>
+        <div>
+          <label class="block font-medium">Branch Name</label>
+          <input type="text" formControlName="branchName" class="w-full border rounded px-3 py-2" />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 mt-3">
+        <div>
+          <label class="block font-medium">Price</label>
+          <input type="number" formControlName="price" class="w-full border rounded px-3 py-2" />
+        </div>
+        <div>
+          <label class="block font-medium">Stock</label>
+          <input type="number" formControlName="stock" class="w-full border rounded px-3 py-2" />
+        </div>
+      </div>
+
+      <button type="submit"
+        class="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+        Update
+      </button>
+    </form>
+  }
+</div>

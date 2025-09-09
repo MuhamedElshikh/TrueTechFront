@@ -1,0 +1,71 @@
+<div class="p-6">
+  <!-- Header -->
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold">Products</h1>
+    <button 
+      (click)="goToAdd()" 
+      class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow">
+      + Add Product
+    </button>
+  </div>
+
+  <!-- Loading -->
+  @if(loading) {
+    <div class="text-center py-6">
+      <span class="text-gray-500">Loading products...</span>
+    </div>
+  }
+
+  <!-- Table -->
+  @if(!loading && products.length > 0) {
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-white border rounded-lg shadow">
+        <thead>
+          <tr class="bg-gray-100 text-left">
+            <th class="p-3">Image</th>
+            <th class="p-3">Name</th>
+            <th class="p-3">Description</th>
+            <th class="p-3">Branches</th>
+            <th class="p-3 text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(product of products; track $index) {
+            <tr class="border-t hover:bg-gray-50">
+              <td class="p-3">
+                <img [src]="product.pictureUrl" alt="Product" class="w-12 h-12 rounded object-cover" />
+              </td>
+              <td class="p-3 font-semibold">{{ product.productName }}</td>
+              <td class="p-3 text-gray-600">{{ product.description }}</td>
+              <td class="p-3">
+                <div>
+                  <span class="font-medium">{{ product.branchName }}</span> - 
+                  <span class="text-green-600">{{ product.price }}</span> 
+                  (<span class="text-gray-500">{{ product.stock }} pcs</span>)
+                </div>
+              </td>
+              <td class="p-3 flex justify-center gap-2">
+                <button 
+                 (click)="goToEdit(product.productId, product.branchId)" 
+                  class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded">
+                  Edit
+                </button>
+                <button 
+                  (click)="deleteproduct(product.productId)" 
+                  class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+
+  @if(!loading && products.length === 0) {
+    <div class="text-center py-6 text-gray-500">
+      No products found.
+    </div>
+  }
+</div>

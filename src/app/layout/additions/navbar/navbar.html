@@ -6,19 +6,25 @@
     </a>
 
     <div class="hidden md:flex space-x-4">
-      <a routerLink="/home" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
-      <a routerLink="/branch" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">branch</a>
-      <a routerLink="/orders" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">order</a>
+      <a routerLink="Custmor/home" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+      <a routerLink="Custmor/branch" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">branch</a>
+       @if(!isAdmin)
+      {
+      <a routerLink="Custmor/orders" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">order</a>
+      }
     </div>
 
     <div class="flex items-center space-x-4">
-      
-      <a routerLink="/cart" class="text-gray-300 hover:text-white relative">
+      @if(!isAdmin &&islogin)
+      {
+ <a routerLink="Custmor/cart" class="text-gray-300 hover:text-white relative">
         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13a1 1 0 100 2h10a1 1 0 100-2m6 0a1 1 0 100 2" />
         </svg>
-        <span class="absolute -top-1 -right-1 bg-red-600 text-white text-xs px-2 py-1 rounded-full">3</span> 
+        <span class="absolute -top-1 -right-1 bg-red-600 text-white text-xs px-2 py-1 rounded-full">{{cartItemCount}}</span> 
         </a>
+      }
+     
 
       @if (islogin == false) {
 <a routerLink="/login" routerLinkActive=" text-white , active"  class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">login</a>
@@ -26,13 +32,17 @@
 
   }      
   @else {
+    @if(!isAdmin)
+    {
 <a routerLink="/cart" class="flex justify-center items-center">
     <div class="relative flex justify-center items-center">
   <span class="absolute z-10 text-white w-5 flex justify-center items-center text-sm h-5 translate-y-[-70%] translate-x-[-50%] rounded-full bg-main-clore" ></span>
 <i class="fa-solid fa-cart-shopping text-xl"></i>
 </div>
 </a>
-    <a (click)="_AuthService.logout()"  class="cursor-pointer transition-all duration-700 block py-2 px-3  text-gray-900 rounded-full hover:text-white hover:bg-red-600  ">logout</a>
+    }
+
+    <a (click)="_AuthService.logout()"  class="cursor-pointer bg-red-600 transition-all duration-700 block py-2 px-3  text-gray-900 rounded-full hover:text-white hover:bg-red-600  ">logout</a>
   }
      
       <button class="md:hidden text-gray-300 hover:text-white focus:outline-none" id="mobile-menu-button">

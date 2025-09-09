@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Authservises } from '../../../shared/servises/auth/authservises';
 import { RouterLink } from '@angular/router';
+import { Cartservice } from '../../../shared/servises/cart/cartservice';
 
 @Component({
   selector: 'app-navbar',
@@ -10,8 +11,10 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./navbar.css']
 })
 export class Navbar implements OnInit {
-  constructor(public _AuthService: Authservises) {}
+  cartItemCount:number =0;
+  constructor(public _AuthService: Authservises ,private _CartService : Cartservice) {}
   islogin: boolean = false;
+  isAdmin:boolean = false;
   ngOnInit(): void {
     this._AuthService.usertoken.subscribe(() => {
       if (this._AuthService.usertoken.getValue() != null) {
@@ -19,11 +22,21 @@ export class Navbar implements OnInit {
       } else {
         this.islogin = false;
       }
+      if(this._AuthService.getUserrole()=="Admin")
+      {
+          this.isAdmin=true;
+      }
     });
-//     this._CartService.cartItemNum.subscribe((v)=>{
-// this.cartitemnum = v
-//     })
-//     console.log(this.cartitemnum);
-    
+    this._CartService.cart$.subscribe(cart => {
+    if (cart) {
+      this.cartItemCount = cart.cartItems.reduce((sum, item) => sum + item.quantity, 0);
+    } else {
+      this.cartItemCount = 0;
+    }
+  });
+
+  this._CartService.getcart().subscribe(cart => {
+    this._CartService.setCart(cart);
+  });
   }
 }
